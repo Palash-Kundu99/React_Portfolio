@@ -1,0 +1,26 @@
+1. Installed the toast notification package `sonner`:
+   npm install sonner
+
+2. Imported `toast` from `sonner` in the contact form component:
+   import { toast } from "sonner";
+
+3. Added `<Toaster />` component in the main app (e.g., App.jsx) to enable toast rendering:
+   import { Toaster } from "sonner";
+   ...
+   <Toaster />
+
+4. Created a form submit handler to:
+   - Prevent default form submission
+   - Show a success toast message with a description
+   - Reset the form fields
+   Example:
+   const handleSubmit = (e) => {
+     e.preventDefault();
+     toast.success("Message sent!", {
+       description: "Thank you for your message.",
+     });
+     e.target.reset();
+   };
+
+5. Attached the submit handler to the form's `onSubmit` event:
+   <form onSubmit={handleSubmit}> ... </form>
